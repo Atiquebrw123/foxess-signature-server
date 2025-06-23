@@ -18,7 +18,7 @@ def generate_signature():
 
     # Match exact Python format
     timestamp = round(time.time() * 1000 - 60)
-    raw = f"{path}\r\n{token}\r\n{timestamp}"
+    raw = fr"{path}\r\n{token}\r\n{timestamp}"
     signature = hashlib.md5(raw.encode('utf-8')).hexdigest().lower()
 
     return jsonify({
