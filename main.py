@@ -5,6 +5,9 @@ import time
 app = Flask(__name__)
 
 @app.route('/generate-signature', methods=['POST'])
+@app.route('/')
+def home():
+    return "FoxESS Signature Server is online."
 def generate_signature():
     data = request.get_json()
     path = data.get('path')
